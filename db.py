@@ -15,6 +15,7 @@ DATABASE_URL = "sqlite:///./real_estate.db"
 
 Base = declarative_base()
 
+# user table
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True, index=True)
@@ -24,6 +25,7 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     properties = relationship("Property", back_populates="owner")
 
+# property table
 class Property(Base):
     __tablename__ = "properties"
     id = Column(Integer, primary_key=True, index=True)
